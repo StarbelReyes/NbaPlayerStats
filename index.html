@@ -11,9 +11,21 @@
             padding: 0;
             background-color: rgb(0, 0, 0);
             font-family: Arial, sans-serif;
+            transition: background-image 0.3s ease-in-out;
+
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0%;
+            width: 100%;
+            height: 100%;
             background-size: cover;
             background-repeat: no-repeat;
-            transition: background-image 0.3s ease-in-out;
+            z-index: -1;
+            transition: filter 0.3s ease;
+            background-image: linear-gradient(to bottom right, red , blue);
         }
 
         .grid-container {
@@ -22,39 +34,63 @@
             gap: 20px;
             padding: 20px;
             margin-top: 100px;
+            
         }
 
-        .cutout {
+        .cutout, .cutout1, .cutout2 {
             width: 100%;
             height: auto;
             transition: transform ease 0.5s;
-          
         }
 
-        .cutout:hover {
+        .cutout:hover, .cutout1:hover, .cutout2:hover {
             transform: translateY(-10px);
         }
-
         .player-info {
             margin-top: 20px;
             font-size: 16px;
-            color: antiquewhite;
+            color: rgb(221, 219, 216);
+            
+            
         }
 
     </style>
 </head>
 <body id="body">
+    <div class="background-image" id="background-image"></div>
     <div class="grid-container" id="change">
         <div>
-            <img class="cutout" src="./images/luka.png" onmouseover="lukaDoncic(); changeBckgrnd('url(images/luka.jpg)')" onmouseleave="clearInfoLuka(); resetBckground()">
+            <img class="cutout" id="cutout" src="./images/luka.png" onmouseover="lukaDoncic(); 
+            changeBckgrnd('url(images/luka.jpg)'); 
+            applyBlur(); 
+            zIndexCall(); 
+            hide()" 
+            onmouseleave="clearInfoLuka(); 
+            resetBckground(); 
+            resetZIndexCall(); 
+            reveal()">
             <p id="luka" class="player-info"></p>
         </div>
         <div>
-            <img class="cutout" src="./images/lebron.png" onmouseover="lebronJames(); changeBckgrnd('url(images/lebron.jpeg)')" onmouseleave="clearInfoLebron();  resetBckground()">
+            <img class="cutout1" id="cutout1" src="./images/lebron.png" onmouseover="lebronJames(); 
+            changeBckgrnd('url(images/lebron.jpeg)'); 
+            zIndexCall1(); 
+            hide1()" 
+            onmouseleave="clearInfoLebron();  
+            resetBckground(); 
+            resetZIndexCall();
+            reveal1()">
             <p id="lebron" class="player-info"></p>
         </div>
         <div>
-            <img class="cutout" src="./images/Michael jordan.png" onmouseover="michaelJordan(); changeBckgrnd('url(images/jordan.jpeg)')" onmouseleave="clearInfoMichael(); resetBckground">
+            <img class="cutout2" id="cutout2" src="./images/Michael jordan.png" onmouseover="michaelJordan(); 
+            changeBckgrnd('url(images/jordan.jpeg)'); 
+            zIndexCall2();
+            hide2()" 
+            onmouseleave="clearInfoMichael(); 
+            resetBckground; 
+            resetZIndexCall();
+            reveal2()">
             <p id="michael" class="player-info"></p>
         </div>
     </div>
@@ -123,12 +159,65 @@
         }
 
         function changeBckgrnd(imageUrl){
-            document.getElementById('body').style.backgroundImage = imageUrl;
+            document.getElementById('background-image').style.backgroundImage = imageUrl;
         }
 
         function resetBckground(){
             document.getElementById('body').style.backgroundImage = 'none';
         }
+
+        function applyBlur() {
+            document.getElementById('background-image').style.filter = 'blur(4px)';
+            document.getElementById('background-image').style.webkitFilter = 'blur(4px)'; // For Safari
+        }
+
+        function zIndexCall(){
+            document.getElementById('background-image').style.zIndex = "-3"
+        }
+
+        function zIndexCall1(){
+            document.getElementById('background-image').style.zIndex = "-1"
+        }
+
+        function zIndexCall2(){
+            document.getElementById('background-image').style.zIndex = "-2"
+        }
+
+        function resetZIndexCall(){
+            document.getElementById('background-image').style.zIndex = ""
+        }
+
+        function hide() {
+            document.getElementById('cutout1').style.display = "none";
+            document.getElementById('cutout2').style.display = "none";
+        }
+
+        function hide1() {
+            document.getElementById('cutout').style.display = "none";
+            document.getElementById('cutout2').style.display = "none";
+        }
+
+        function hide2() {
+            document.getElementById('cutout').style.display = "none";
+            document.getElementById('cutout1').style.display = "none";
+        }
+
+        function reveal(){
+            document.getElementById('cutout1').style.display = "";
+            document.getElementById('cutout2').style.display = "";
+        }
+
+        function reveal1(){
+            document.getElementById('cutout').style.display = "";
+            document.getElementById('cutout2').style.display = "";
+        }
+
+        function reveal2(){
+            document.getElementById('cutout').style.display = "";
+            document.getElementById('cutout1').style.display = "";
+        }
+
+        
     </script>
 </body>
 </html>
