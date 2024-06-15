@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link 
+    <title></title>
+    <style>
+           body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(0, 0, 0);
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: background-image 0.3s ease-in-out;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin-top: 100px;
+        }
+
+        .cutout {
+            width: 100%;
+            height: auto;
+            transition: transform ease 0.5s;
+          
+        }
+
+        .cutout:hover {
+            transform: translateY(-10px);
+        }
+
+        .player-info {
+            margin-top: 20px;
+            font-size: 16px;
+            color: antiquewhite;
+        }
+
+    </style>
+</head>
+<body id="body">
+    <div class="grid-container" id="change">
+        <div>
+            <img class="cutout" src="./images/luka.png" onmouseover="lukaDoncic(); changeBckgrnd('url(images/luka.jpg)')" onmouseleave="clearInfoLuka(); resetBckground()">
+            <p id="luka" class="player-info"></p>
+        </div>
+        <div>
+            <img class="cutout" src="./images/lebron.png" onmouseover="lebronJames(); changeBckgrnd('url(images/lebron.jpeg)')" onmouseleave="clearInfoLebron();  resetBckground()">
+            <p id="lebron" class="player-info"></p>
+        </div>
+        <div>
+            <img class="cutout" src="./images/Michael jordan.png" onmouseover="michaelJordan(); changeBckgrnd('url(images/jordan.jpeg)')" onmouseleave="clearInfoMichael(); resetBckground">
+            <p id="michael" class="player-info"></p>
+        </div>
+    </div>
+
+    
+    <script>
+        function lebronJames(){
+           document.getElementById("lebron").innerHTML = `
+    LeBron James, born December 30, 1984, in Akron, Ohio, 
+    is an NBA superstar widely regarded as one of the greatest basketball players of all time. 
+    A four-time NBA champion and four-time MVP, James has played for the Cleveland Cavaliers, Miami Heat, and Los Angeles Lakers. 
+    Known for his versatility, court vision, and scoring ability, he has amassed over 38,000 career points, 10,000 rebounds, and 10,000 assists. 
+    James is also a philanthropist, founding the LeBron James Family Foundation to support educational initiatives.
+
+    Career Stats (as of June 2024):
+
+    Points: 38,652
+    Rebounds: 10,548
+    Assists: 10,412
+    Championships: 4
+    MVPs: 4`;
+        }
+
+        function lukaDoncic(){
+            document.getElementById("luka").innerHTML =`Luka Dončić, born February 28, 1999, in Ljubljana, Slovenia, 
+    is a professional basketball player for the Dallas Mavericks in the NBA. A prodigy from a young age,
+    he began his professional career with Real Madrid before being drafted third overall in the 2018 NBA Draft. 
+    Known for his exceptional ball-handling, scoring, and playmaking abilities, 
+    Dončić has quickly become one of the league's brightest stars, earning multiple All-Star selections and All-NBA Team honors.
+
+    Career Stats (as of June 2024):
+
+    Points: 9,870
+    Rebounds: 3,487
+    Assists: 3,193
+    All-Star Selections: 4
+    All-NBA Team Honors: 4`;
+        }
+
+        function michaelJordan(){
+            document.getElementById('michael').innerHTML =`
+        Michael Jordan, born February 17, 1963, in Brooklyn, New York, is a retired NBA player often considered the greatest of all time. 
+        Jordan played the majority of his career with the Chicago Bulls, winning six NBA championships and earning five MVP awards. Known for his scoring prowess, 
+        competitive spirit, and defensive skills, he amassed over 32,000 career points. 
+        Jordan also had two stints with the Washington Wizards. Post-retirement, he became a successful businessman and owner of the Charlotte Hornets.
+
+        Career Stats:
+
+        Points: 32,292
+        Rebounds: 6,672
+        Assists: 5,633
+        Championships: 6
+        MVPs: 5`;
+        }
+
+        function clearInfoLuka() {
+            document.getElementById('luka').innerText = '';
+        }
+
+        function clearInfoLebron() {
+            document.getElementById('lebron').innerText = '';
+        }
+
+        function clearInfoMichael() {
+            document.getElementById('michael').innerHTML = '';
+        }
+
+        function changeBckgrnd(imageUrl){
+            document.getElementById('body').style.backgroundImage = imageUrl;
+        }
+
+        function resetBckground(){
+            document.getElementById('body').style.backgroundImage = 'none';
+        }
+    </script>
+</body>
+</html>
