@@ -54,6 +54,33 @@
             
         }
 
+     video {
+        display: none;
+      }
+      video.show {
+        display: block;
+      }
+
+      .video-background{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+        object-fit: cover;
+      }
+
+      #gradientOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 1.95), rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.3));
+            z-index: -1;
+        }
+
     </style>
 </head>
 <body id="body">
@@ -69,6 +96,7 @@
             resetBckground(); 
             resetZIndexCall(); 
             reveal()">
+             <video id="sample2" class="video-background" src="videos/Sequence 02_1.mp4" width="320" height="240" controls></video>
             <p id="luka" class="player-info"></p>
         </div>
         <div>
@@ -80,6 +108,8 @@
             resetBckground(); 
             resetZIndexCall();
             reveal1()">
+            <video id="sample" class="video-background" src="videos/lebron james highlights.mp4" width="320" height="240" controls></video>
+            
             <p id="lebron" class="player-info"></p>
         </div>
         <div>
@@ -91,7 +121,8 @@
             resetBckground; 
             resetZIndexCall();
             reveal2()">
-            <p id="michael" class="player-info"></p>
+             <video id="sample3" class="video-background" src="videos/michael jordan video.mp4" width="320" height="240" controls></video>
+            <p id="michael" class="player-info"></p><div id="gradientOverlay"></div>
         </div>
     </div>
 
@@ -218,6 +249,75 @@
             document.getElementById('cutout').style.display = "";
             document.getElementById('cutout1').style.display = "";
         }
+
+        const showVideo = document.querySelector('#sample')
+        const cutOutHover = document.querySelector('.cutout1')
+       
+
+        function playVideo(){
+            showVideo.classList.add('show');
+            showVideo.play();
+        }
+
+        function hideVideo(){
+            showVideo.classList.remove('show');
+            showVideo.pause();
+            showVideo.currentTime = 0;
+        }
+
+        cutOutHover.addEventListener("mouseenter", playVideo);
+        cutOutHover.addEventListener("mouseleave", hideVideo);
+
+        showVideo.addEventListener('ended', () => {
+            showVideo.currentTime = 0;
+            showVideo.play();
+        });
+
+        const showVideo2 = document.querySelector('#sample2')
+        const cutOutHover2 = document.querySelector('.cutout')
+       
+
+        function playVideo1(){
+            showVideo2.classList.add('show');
+            showVideo2.play();
+        }
+
+        function hideVideo2(){
+            showVideo2.classList.remove('show');
+            showVideo2.pause();
+            showVideo2.currentTime = 0;
+        }
+
+        cutOutHover2.addEventListener("mouseenter", playVideo1);
+        cutOutHover2.addEventListener("mouseleave", hideVideo2);
+
+        showVideo2.addEventListener('ended', () => {
+            showVideo2.currentTime = 0;
+            showVideo2.play();
+        });
+
+        const showVideo3 = document.querySelector('#sample3')
+        const cutOutHover3 = document.querySelector('.cutout2')
+       
+
+        function playVideo3(){
+            showVideo3.classList.add('show');
+            showVideo3.play();
+        }
+
+        function hideVideo3(){
+            showVideo3.classList.remove('show');
+            showVideo3.pause();
+            showVideo3.currentTime = 0;
+        }
+
+        cutOutHover3.addEventListener("mouseenter", playVideo3);
+        cutOutHover3.addEventListener("mouseleave", hideVideo3);
+
+        showVideo3.addEventListener('ended', () => {
+            showVideo3.currentTime = 0;
+            showVideo3.play();
+        });
 
         
     </script>
