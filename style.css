@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(0, 0, 0);
+  font-family: Arial, sans-serif;
+  transition: background-image 0.3s ease-in-out;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  transition: filter 0.3s ease;
+  background-image: linear-gradient(to bottom right, red, blue);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin-top: 100px;
+}
+
+.cutout,
+.cutout1,
+.cutout2 {
+  width: 100%;
+  height: auto;
+  transition: transform ease 0.5s;
+}
+
+.cutout:hover,
+.cutout1:hover,
+.cutout2:hover {
+  transform: translateY(-10px);
+}
+
+.player-info {
+  color: antiquewhite;
+}
+
+.player-info:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+#lebron {
+  position: relative;
+  bottom: 50%;
+  right: 100%;
+}
+
+video {
+  display: none;
+}
+video.show {
+  display: block;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+#gradientOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1.95),
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.3)
+  );
+  z-index: -1;
+}
