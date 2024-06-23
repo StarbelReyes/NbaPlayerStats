@@ -3,39 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <title></title>
 </head>
 <body id="body">
     <div class="background-image" id="background-image"></div>
+    
     <div class="grid-container" id="change">
-        <div>
-            <img class="cutout" id="cutout" src="./images/luka.png" onmouseover="lukaDoncic(); 
-            changeBckgrnd('url(images/luka.jpg)'); 
-            applyBlur(); "
-            onmouseleave="clearInfoLuka(); 
-            resetBckground();">
-             <video id="sample" class="video-background" src="videos/Sequence 02_1.mp4" width="320" height="240" controls></video>
-            <p id="luka" class="player-info"></p>
-        </div>
-        <div>
-            <img class="cutout1" id="cutout1" src="./images/lebron.png" onmouseover="lebronJames(); 
-            changeBckgrnd('url(images/lebron.jpeg)');"  
-            onmouseleave="clearInfoLebron();  
-            resetBckground(); ">
-            <video id="sample1" class="video-background" src="videos/lebron james highlights.mp4" width="320" height="240" controls></video>
-            <p id="lebron" class="player-info"></p>
-        </div>
-        <div>
-            <img class="cutout2" id="cutout2" src="./images/Michael jordan.png" onmouseover="michaelJordan(); 
-            changeBckgrnd('url(images/jordan.jpeg)');"
-            onmouseleave="clearInfoMichael(); 
-            resetBckground();">
-             <video id="sample2" class="video-background" src="videos/michael jordan video.mp4" width="320" height="240" controls></video>
-            <p id="michael" class="player-info"></p><div id="gradientOverlay"></div>
-        </div>
-    </div>
+                <div class="mySlides fade" data-background="url(images/luka.jpg)" >
+                    <div>
+                        <img class="cutout" id="cutout" src="images/luka card.jpg" style="width:50%" onmouseover="lukaDoncic(); 
+                        changeBckgrnd('url(images/luka.jpg)'); 
+                        applyBlur(); "
+                        onmouseleave="clearInfoLuka(); 
+                        ">
+                        <video id="sample" class="video-background" src="videos/Sequence 02_1.mp4" width="320" height="240" controls data-video="video1"></video>
+                        <p id="luka" class="player-info"></p><div id="gradientOverlay"></div>
+                    </div>
+                </div>
+        
+                <div class="mySlides fade" data-background="url(images/lebron.jpeg)">
+                    <div>
+                        <img class="cutout1" id="cutout1" src="images/lebron card.jpg" style="width:50%" onmouseover="lebronJames(); 
+                        changeBckgrnd('url(images/lebron.jpeg)');"  
+                        onmouseleave="clearInfoLebron();  
+                         ">
+                         <video id="sample1" class="video-background" src="videos/lebron james highlights.mp4" width="320" height="240" controls></video> 
+                        <p id="lebron" class="player-info"></p><div id="gradientOverlay"></div>
+                    </div>
+                </div>
+       
+                <div class="mySlides fade" data-background="url(images/jordan.jpeg)">
+                    <div>
+                        <img class="cutout2" id="cutout2" src="images/michael jordan card.jpg" style="width:50%" onmouseover="michaelJordan(); 
+                        changeBckgrnd('url(images/jordan.jpeg)');"
+                        onmouseleave="clearInfoMichael(); 
+                        ">
+                      <video id="sample2" class="video-background" src="videos/michael jordan video.mp4" width="320" height="240" controls></video> 
+                        <p id="michael" class="player-info"></p><div id="gradientOverlay"></div>
+                    </div>
+                </div>
 
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <br>
+              </div>
+            </div>
+
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+             </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js">
     </script>
